@@ -26,6 +26,10 @@
         <title>CrowdFoo</title>
     </head>
     <style>
+    .card{
+      position: relative;
+      top:100px;
+    }
     .search-box{
         width: 700px;
         height: 40px;
@@ -40,7 +44,9 @@
         border: 1px solid #CCCCCC;
         font-size: 20px;
     }
+    .result{
 
+    }
     .search-box input[type="text"], .result{
         width: 100%;
     }
@@ -51,9 +57,6 @@
       border: 1px solid #CCCCCC;
       border-top: none;
       cursor: pointer;
-      position: relative;
-      z-index: 1;
-      background-color: white;
     }
     .result p:hover{
         background: #f2f2f2;
@@ -76,7 +79,7 @@
       transition: all .3s ease;
   }
 
-    
+    }
     </style>
     <body>
 
@@ -138,7 +141,7 @@
             </div>
         </div>
     </nav>
-    <div class="container" style="width: 1000px">
+    <center><div class="container" style="width: 1000px">
         <div class="searchtext">
           <h2>Projects</h2>
         </div>
@@ -157,7 +160,6 @@
       $project_query = $db->prepare("SELECT project_ID FROM projects WHERE project_name = '$searchterm'");
       $project_query->execute();
       $result = $project_query->fetch();
-      print_r($result);
       header("Location: project.php?projectid=".$result['project_ID']);
   }
     else{
@@ -165,7 +167,7 @@
   ?>
     <div class="card" style="width: 18rem;">
         <div class="card-header">
-            Newest Projects
+          Newest Projects!
         </div>
         <ul class="list-group list-group-flush">
             <?php
@@ -187,7 +189,7 @@
     </div>
   <?php }
 ?>
-
+</center>
       <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
       <script>
       $(document).ready(function(){
